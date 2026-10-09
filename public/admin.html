@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#b40000" />
+  <title>Painel | MCM Taekwondo Team</title>
+  <link rel="icon" type="image/png" href="/imagens/mcm-logo.png" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body class="admin-page">
+  <div class="admin-topbar">
+    <div class="container admin-top-inner">
+      <a class="admin-brand" href="/">
+        <img src="/imagens/mcm-logo.png" alt="MCM" />
+        <span>MCM <strong>TAEKWONDO TEAM</strong></span>
+      </a>
+      <a href="/" class="admin-site-link">← Ver site</a>
+    </div>
+  </div>
+
+  <main class="admin-shell">
+    <section id="loginView" class="login-card">
+      <div class="login-mark"><img src="/imagens/mcm-logo.png" alt="MCM Taekwondo Team" /></div>
+      <span class="section-tag">Área restrita</span>
+      <h1>Painel administrativo</h1>
+      <p>Gerencie as notícias e publicações da MCM Taekwondo Team.</p>
+      <form id="loginForm">
+        <label>Usuário<input id="username" name="username" value="admim" autocomplete="username" required /></label>
+        <label>Senha<input id="password" name="password" type="password" autocomplete="current-password" required /></label>
+        <button class="btn btn-red full" type="submit">Entrar no painel</button>
+        <p id="loginMessage" class="message"></p>
+      </form>
+    </section>
+
+    <section id="dashboardView" class="dashboard hidden">
+      <header class="dashboard-header">
+        <div>
+          <span class="section-tag">MCM TAEKWONDO TEAM</span>
+          <h1>Gerenciar publicações</h1>
+          <p>Cadastre notícias, eventos, campeonatos, graduações e fotos.</p>
+        </div>
+        <div class="dashboard-actions">
+          <a class="btn ghost" href="/" target="_blank">Abrir site</a>
+          <button id="logoutBtn" class="btn danger-outline">Sair</button>
+        </div>
+      </header>
+
+      <div class="dashboard-grid">
+        <section class="editor-card">
+          <div class="card-kicker">Conteúdo</div>
+          <h2 id="formTitle">Nova publicação</h2>
+          <form id="postForm">
+            <input type="hidden" id="postId" />
+            <label>Título<input id="title" name="title" placeholder="Ex.: Campeonato Paulista 2026" required /></label>
+            <label>Categoria<select id="category" name="category"><option>Novidades</option><option>Treinos</option><option>Campeonatos</option><option>Graduações</option><option>Eventos</option><option>Alunos</option><option>Geral</option></select></label>
+            <label>Texto da publicação<textarea id="content" name="content" rows="8" placeholder="Escreva aqui..." required></textarea></label>
+            <label>Foto<input id="image" name="image" type="file" accept="image/jpeg,image/png,image/webp,image/gif" /><small>Máximo: 8 MB. JPG, PNG, WEBP ou GIF.</small></label>
+            <div id="currentImageBox" class="current-image hidden"><img id="currentImage" alt="Imagem atual" /><label class="remove-check"><input id="removeImage" type="checkbox" /> Remover a imagem atual</label></div>
+            <div class="form-actions"><button class="btn btn-red" type="submit">Salvar publicação</button><button id="cancelEditBtn" class="btn ghost hidden" type="button">Cancelar</button></div>
+            <p id="formMessage" class="message"></p>
+          </form>
+        </section>
+
+        <section class="list-card">
+          <div class="list-header"><div><div class="card-kicker">Conteúdo publicado</div><h2>Publicações</h2></div><button id="refreshBtn" class="btn ghost">Atualizar</button></div>
+          <div id="adminPosts" class="admin-posts"><p class="loading">Carregando...</p></div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script src="/js/admin.js"></script>
+</body>
+</html>
